@@ -1,2 +1,15 @@
 export { default as Navbar } from './Navbar';
+export { default as Messages } from './Messages/Messages';
+export { default as Footer } from './Footer';
 export { default as Home } from './Home/Home';
+export { default as Signup } from './Signup/Signup';
+export { default as Activate } from './Activate/Activate';
+export { default as ResendActivation } from './ResendActivation/ResendActivation';
+export { default as ResetPassword } from './ResetPassword/ResetPassword';
+export { default as ResetPasswordConfirm } from './ResetPasswordConfirm/ResetPasswordConfirm';
+export { default as Login } from './Login/Login';
+export { default as Logout } from './Logout/Logout';
+export { default as Products } from './Products/Products';
+export { default as Product } from './Product/Product';
+export { default as Cart } from './Cart/Cart';
+export { default as OrdersHistory } from './OrdersHistory/OrdersHistory';

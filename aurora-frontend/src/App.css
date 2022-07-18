@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Luxurious+Roman&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Luxurious+Roman&family=Poppins:wght@300&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 * {
   margin: 0;
@@ -29,3 +32,120 @@
     border-radius: 25px;
     border: 3px solid #ffffff;
   }
+
+@layer components {
+  .brand {
+    @apply text-4xl no-underline uppercase;
+    font-family: 'Luxurious Roman', cursive !important;
+  }
+
+  .nav-group {
+    @apply h-full flex justify-between items-center gap-5;
+  }
+
+  .nav-item {
+    height: 100%;
+  }
+
+  .nav-item > a, span {
+    height: 100%;
+    width: 100%;
+    position: relative; /* for hover effect */
+    display: flex;
+    align-items: center; /* center text vertically */
+    justify-content: center; /* center text horizontally */
+    cursor: default;
+  }
+
+  .nav-item > a::after,
+  .nav-item > span::after {
+    content: '';
+    display: block;
+    position: absolute; /* to position it at the bottom */
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    background-color: black;
+    transition: width 0.2s ease-out;
+  }
+
+  .nav-item > a:hover::after,
+  .nav-item > span:hover::after,
+  .nav-item.active > a::after,
+  .nav-item.active > span::after {
+      width: 100%;
+  }
+
+  .nav-item > a {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+  }
+
+
+  .nav-item:hover > div { /* to show the dropdown menu which is a child of the nav item */
+      display: flex;
+  }
+
+  .form-group {
+    @apply my-4;
+  }
+
+  .form-input {
+    @apply w-full h-8 px-2 border-2 border-black;
+  }
+
+  .btn-primary {
+    @apply block h-8 border-none bg-black text-white cursor-pointer hover:bg-gray-800 transition-all;
+  }
+
+  .btn-secondary {
+    @apply block h-8 border-none bg-white text-black cursor-pointer hover:bg-gray-200 transition-all;
+  }
+
+  .category-card {
+    @apply w-80 h-96 p-3 relative text-white overflow-hidden bg-black bg-opacity-50;
+  }
+
+  .category-card:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    /* background-blend-mode: multiply; */
+    transition: transform .2s ease-out;
+    z-index: -1;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  
+  .category-card:nth-child(1):before {
+    background-image: url('https://images.pexels.com/photos/10509521/pexels-photo-10509521.jpeg?cs=srgb&dl=pexels-mavluda-tashbaeva-10509521.jpg&fm=jpg');
+  }
+  
+  .category-card:nth-child(2):before {
+    background-image: url('https://images.pexels.com/photos/1661471/pexels-photo-1661471.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+  }
+
+  .category-card:nth-child(3):before {
+    background-image: url('https://images.pexels.com/photos/4938265/pexels-photo-4938265.jpeg?cs=srgb&dl=pexels-karolina-grabowska-4938265.jpg&fm=jpg');
+  }
+
+  .category-card:hover:before {
+    transform: scale(1.1);
+  }
+
+  .category-card a {
+    text-decoration: none;
+    color: white;
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+}
